@@ -37,16 +37,6 @@ float validaInput(const string& mensaje, float min = -INFINITY, float max = INFI
 
 // Función para ingresar precios
 
-/*
-void opcion1() {
-    cout << "Ingrese el precio de cada mesa: ";
-    cin >> precioMesa;
-    cout << "Ingrese el precio de cada silla: ";
-    cin >> precioSilla;
-    cout << fixed << setprecision(2);
-    cout << "Los precios fueron registrados: mesas USD " << precioMesa << " y sillas USD " << precioSilla << ".\n";
-}
-*/
 
 void opcion1() {
     precioMesa = validaInput("Ingrese el precio de cada mesa: ", 0);
@@ -59,23 +49,6 @@ void opcion1() {
 
 
 // Función para ingresar restricciones
-/*
-void opcion2() {
-    int n;
-    cout << "Ingrese el número de restricciones: ";
-    cin >> n;
-    restricciones.clear();
-    for (int i = 0; i < n; ++i) {
-        float a, b, c;
-        cout << "Restricción " << i + 1 << ": formato ax + by <= c\n";
-        cout << "Ingrese a: "; cin >> a;
-        cout << "Ingrese b: "; cin >> b;
-        cout << "Ingrese c: "; cin >> c;
-        restricciones.push_back({ a, b, c });
-    }
-    cout << "Restricciones registradas correctamente.\n";
-}
-*/
 
 void opcion2() {
     int n = static_cast<int>(validaInput("Ingrese el numero de restricciones: ", 1));
@@ -94,15 +67,6 @@ void opcion2() {
 
 
 // Función para ingresar función de ganancia
-/*
-void opcion3() {
-    cout << "Ingrese el coeficiente de x (mesas) en la función de ganancia: ";
-    cin >> coefX;
-    cout << "Ingrese el coeficiente de y (sillas) en la función de ganancia: ";
-    cin >> coefY;
-    cout << "Función de ganancia: Max Z = " << coefX << "x + " << coefY << "y\n";
-}
-*/
 
 void opcion3() {
     coefX = validaInput("Ingrese el coeficiente de x (mesas) en la función de ganancia: ");
@@ -141,46 +105,6 @@ void opcion4() {
     }
     cout << "Solucion optima: No. de sillas = " << optY << ", No. de mesas = " << optX << ", Ganancia maxima = $" << mejorGanancia << "\n";
 }
-
-// Opción 5: Visualización gráfica con SFML
-/*
-void opcion5() {
-    const int windowSize = 600;
-    const float escala = 6.0f; // para mapear 100x100 en 600x600
-
-    sf::RenderWindow window(sf::VideoMode(windowSize, windowSize), "Área Factible y Solución Óptima");
-
-    while (window.isOpen()) {
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
-
-        window.clear(sf::Color::White);
-
-        // Dibujar área factible
-        for (int x = 0; x <= 100; ++x) {
-            for (int y = 0; y <= 100; ++y) {
-                if (esFactible(x, y)) {
-                    sf::RectangleShape punto(sf::Vector2f(1, 1));
-                    punto.setFillColor(sf::Color(200, 200, 255));
-                    punto.setPosition(x * escala, windowSize - y * escala);
-                    window.draw(punto);
-                }
-            }
-        }
-
-        // Dibujar punto óptimo
-        sf::CircleShape optimo(4);
-        optimo.setFillColor(sf::Color::Red);
-        optimo.setPosition(optX * escala - 2, windowSize - optY * escala - 2);
-        window.draw(optimo);
-
-        window.display();
-    }
-}
-*/
 
 // Opcion 5: Visualizacion grafica con SFML
 void opcion5() {
@@ -254,33 +178,6 @@ void opcion5() {
 }
 
 // Menú principal
-/*
-int main() {
-    int opcion;
-    do {
-        cout << "MENU PRINCIPAL\n";
-        cout << "1. Ingreso de precios de venta\n";
-        cout << "2. Ingreso de restricciones de produccion\n";
-        cout << "3. Ingreso de la funcion de ganancia\n";
-        cout << "4. Calculo de la solución optima\n";
-        cout << "5. Solucion grafica del problema de optimizacion\n";
-        cout << "6. Salir\n";
-        cout << "Seleccione una opcion: ";
-        cin >> opcion;
-        switch (opcion) {
-        case 1: opcion1(); break;
-        case 2: opcion2(); break;
-        case 3: opcion3(); break;
-        case 4: opcion4(); break;
-        case 5: opcion5(); break;
-        case 6: cout << "Saliendo del programa.\n"; break;
-        default: cout << "Opcion no valida.\n";
-        }
-    } while (opcion != 6);
-
-    return 0;
-}
-*/
 
 int main() {
     int opcion;
